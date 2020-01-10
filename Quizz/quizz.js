@@ -35,21 +35,36 @@ Quizz.prototype.compareAnswer = function(answerToQues, index) {
   }
 };
 Quizz.prototype.renderInHTML = function(quizz) {
-    let index = quizz.getIndex(question);
-    question2.toHTML(section, quizz.getQuestions()[index], quizz,question,index);
-
+  let index = quizz.getIndex(question);
+  question2.toHTML(
+    section,
+    quizz.getQuestions()[index],
+    quizz,
+    question,
+    index
+  );
 };
 
 let quizz = new Quizz(0);
-let question = new Question("How Old Are u ?", ["12", "14", "13"], "13");
+let question = new Question(
+  "How Many Songs Are in the Playlist ?",
+  ["3", "5", "1K"],
+  "3"
+);
+let question3 = new Question(
+  "Who made dickinson music  ?",
+  ["Ian Hultquist", "Eric et Ramzy", "Eva Mendes"],
+  "Ian Hultquist"
+);
 let question2 = new Question(
-  "What's the year of creation ?",
-  ["2002", "2004", "2013"],
-  "2004"
+  "Who made tom and jerry Soundtrack  ?",
+  ["Václav Lídl", "Donald Trump", "Laclau Charlotte"],
+  "Laclau Charlotte"
 );
 
 quizz.add(question);
 quizz.add(question2);
+quizz.add(question3);
 quizz.renderInHTML(quizz);
 quizz.setAnswer("15");
 

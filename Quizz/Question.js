@@ -54,6 +54,7 @@ Question.prototype.toHTML = function(
 
     label.innerHTML = `${question.getAnswers()[i]}`;
     label.appendChild(input);
+    label.setAttribute("class","answers")
     input.setAttribute("type", "radio");
     input.setAttribute("name", "checked-only-once");
     div.setAttribute("class", "question-answer");
@@ -85,7 +86,7 @@ Question.prototype.toHTML = function(
       Question.appendChild(win);
     } else if (
       quizz.getScore() != quizz.getQuestions().length &&
-      index + 1 == 2
+      index + 1 == quizz.getQuestions().length
     ) {
       loose.innerHTML = `Game Over ! Score : ${quizz.getScore()}`;
       Question.appendChild(loose);
