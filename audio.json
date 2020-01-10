@@ -1,0 +1,36 @@
+{
+  "song": {
+    "songOne": {
+      "artist": "Tales",
+      "title": "tomjerry",
+      "duration": 0.28,
+      "isPlaying": false
+    },
+    "songTwo": {
+      "artist": "warnerbros",
+      "title": "looneytunes",
+      "duration": 0.36,
+      "isPlaying": false
+    },
+    "songThree": {
+      "artist": "avril-lavigne",
+      "title": "close",
+      "duration": 0.58,
+      "isPlaying": false
+    }
+  },
+  "movie": {
+      "movieOne":{
+        "year": 2015,
+        "title": "dickinson",
+        "duration": 1.00,
+        "isPlaying": false
+      },
+      "movieTwo":{
+        "year": 2016,
+        "title": "inner-workings",
+        "duration": 1.20,
+        "isPlaying": false
+      }
+  }
+}

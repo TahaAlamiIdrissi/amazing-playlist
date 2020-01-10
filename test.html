@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Testing OOP</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <img src="./resources/img/logo.png" height="70" width="75" alt="logo" />
+        <ul>
+          <li><a href="#playlist">Playlist</a></li>
+          <li><a href="#quizz">Quizz</a></li>
+          <li><a href="#register">Sign Up</a></li>
+        </ul>
+      </nav>
+
+      <section id="playlist">
+        <div class="card">
+          <h3>What a Playlist ..</h3>
+          <ul id="arrayOfSongs"></ul>
+          <div class="controllers">
+            <img
+              src="./resources/img/previous.png"
+              id="previousButton"
+              alt="prev"
+            />
+            <img src="./resources/img/play.png" id="playButton" alt="play" />
+            <img src="./resources/img/next.png" id="nextButton" alt="next" />
+          </div>
+        </div>
+      </section>
+      <section id="quizz"></section>
+      <section id="register">
+        <form class="box" name="registration">
+          <h3>Register</h3>
+          <input
+            type="text"
+            name="firstname"
+            placeholder="firstname"
+            id="fid"
+          />
+          <input type="text" name="lastname" placeholder="lastname" id="lid" />
+          <input type="text" name="email" placeholder="email" id="eid" />
+          <input type="submit" name="submit" value="Register" />
+        </form>
+      </section>
+    </div>
+
+    <script src="./jquery.min.js"></script>
+    <script src="./Playlist/media.js"></script>
+    <script src="./Playlist/playlist.js"></script>
+    <script src="./Playlist/song.js"></script>
+    <script src="./Playlist/movie.js"></script>
+    <script src="./app.js"></script>
+    <script src="./Quizz/Question.js"></script>
+    <script src="./Quizz/quizz.js"></script>
+    <script src="./Register/User.js"></script>
+    <script src="./Register/Register.js"></script>
+  </body>
+</html>
