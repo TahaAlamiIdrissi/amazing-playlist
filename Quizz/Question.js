@@ -1,3 +1,11 @@
+/* Question Class */
+/* 
+* this class Will contain
+* - a question
+* - a set of answers
+* - the correct answere
+* - the score for this questio
+*/
 function Question(question, answers, correctAnswer) {
   this.question = question;
   this.answers = answers;
@@ -20,6 +28,9 @@ Question.prototype.getScore = function() {
 Question.prototype.getAnswer = function() {
   return this.correctAnswer;
 };
+
+/* Rendering in HTML (react style) */
+
 Question.prototype.toHTML = function(
   element,
   question,
@@ -27,6 +38,8 @@ Question.prototype.toHTML = function(
   callback,
   index
 ) {
+
+  /* creating element */
   let h3 = document.createElement("h3");
   let nextQuestion = document.createElement("a");
   let Question = document.createElement("div");
@@ -34,6 +47,7 @@ Question.prototype.toHTML = function(
   let win = document.createElement("label");
   let loose = document.createElement("label");
 
+  /* Setting details for element ( class for styling) (inner Html) */
   Question.setAttribute("class", "question");
   element.appendChild(Question);
   nextQuestion.innerHTML = "NEXT";
@@ -42,11 +56,12 @@ Question.prototype.toHTML = function(
   nextQuestion.setAttribute("class", "next");
   win.setAttribute("class", "verdict");
   loose.setAttribute("class", "verdict");
-
   h3.style.borderRadius = "5px";
   Question.appendChild(h3);
   h3.innerHTML = `${question.question}`;
+  /* ---------------------------------------------------------------- */
 
+  /* Creating dynamically the questions and answers */
   for (let i = 0; i < question.getAnswers().length; ++i) {
     let input = document.createElement("input");
     let label = document.createElement("label");
@@ -68,6 +83,7 @@ Question.prototype.toHTML = function(
     Question.appendChild(rank);
     Question.appendChild(nextQuestion);
 
+    /* Changing the visual depending on the answer */
     input.addEventListener("change", e => {
       response = input.value;
       if (question.getAnswer() === response) {
@@ -80,6 +96,7 @@ Question.prototype.toHTML = function(
       }
     });
   }
+  /* The next question will be accessible only if the first one passes */
   nextQuestion.addEventListener("click", e => {
     if (quizz.getScore() == quizz.getQuestions().length) {
       win.innerHTML = `You Win ! Score : ${quizz.getScore()}`;

@@ -1,3 +1,6 @@
+
+/* In this file we create a playlist and we get the date from a json file so 
+we dont user a lot of (new .. )  as SHOWN BELOW*/
 let p = new Playlist();
 
 $.getJSON("audio.json", function(json) {
@@ -20,10 +23,13 @@ $.getJSON("audio.json", function(json) {
   }
   p.renderInElement();
 });
+
+/* Replacing this kind of creation */
+
+
 /* let songOne = new Song("Tales", "tom&jerry", 0.26, false);
 let songTwo = new Song("warnerbros", "looneytunes", 0.34, false);
 let songThree = new Song("avril-lavigne", "close", 0.58, false);
-
 
 p.add(songOne);
 p.add(songTwo);

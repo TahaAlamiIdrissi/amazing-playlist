@@ -1,11 +1,18 @@
+/* User class */
+
+/*
+* User class wil contain
+* - a username 
+* - a lastname
+* - an email
+*/
 function User(firstname, lastname, email) {
   this.firstname = firstname;
   this.lastname = lastname;
   this.email = email;
 }
 
-
-
+/* Defining the getters and setters  */
 User.prototype.setFirstname = function(firstname) {
   this.firstname = firstname;
 };

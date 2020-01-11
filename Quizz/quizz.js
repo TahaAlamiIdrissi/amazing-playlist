@@ -1,9 +1,16 @@
+/* Quizz Class */
+
+/* 
+* this class will contain
+* - a set of questions
+* - the total Score of the player
+*/
 function Quizz(totalScore) {
   this.questions = [];
   this.answer = "";
   this.totalScore = totalScore;
 }
-
+// getting the document element
 const section = document.getElementById("quizz");
 
 Quizz.prototype.getQuestions = function() {
@@ -27,13 +34,7 @@ Quizz.prototype.getAnswer = function() {
 Quizz.prototype.getScore = function() {
   return this.totalScore;
 };
-Quizz.prototype.compareAnswer = function(answerToQues, index) {
-  for (let answer in this.answers) {
-    if (this.answers.indexOf(answer) == index)
-      if (answer == answerToQues) return true;
-      else return false;
-  }
-};
+
 Quizz.prototype.renderInHTML = function(quizz) {
   let index = quizz.getIndex(question);
   question2.toHTML(

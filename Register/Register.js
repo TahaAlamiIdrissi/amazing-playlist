@@ -1,7 +1,10 @@
+/* Register class */
+
 function Register() {
   this.user = null;
 }
 
+/* Getting the document element from the form */
 const firstnameTag = document.registration.firstname;
 const lastnameTag = document.registration.lastname;
 const emailTag = document.registration.email;
@@ -10,17 +13,21 @@ const submitTag = document.registration.submit;
 Register.prototype.addUser = function(user) {
   this.user = user;
 };
+/* Validating the email */
 Register.prototype.validateEmail = function(email) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return true;
   else return false;
 };
 
+/* If the user passes the validation successfully we display a message */
 Register.prototype.displayMessage = function(element, user) {
   let label = document.createElement("label");
   label.innerHTML = `Welcome ${user.getFullName()}, You have been registered !`;
   label.setAttribute("class", "message-register");
   element.appendChild(label);
 };
+
+/* Validating  */
 Register.prototype.toHTML = function() {
   submitTag.addEventListener("click", e => {
     e.preventDefault();
