@@ -15,12 +15,14 @@ Register.prototype.addUser = function(user) {
 };
 /* Validating the email */
 Register.prototype.validateEmail = function(email) {
+  // defining our regex
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return true;
   else return false;
 };
 
 /* If the user passes the validation successfully we display a message */
 Register.prototype.displayMessage = function(element, user) {
+  // creating our label
   let label = document.createElement("label");
   label.innerHTML = `Welcome ${user.getFullName()}, You have been registered !`;
   label.setAttribute("class", "message-register");
