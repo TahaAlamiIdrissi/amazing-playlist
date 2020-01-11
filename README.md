@@ -134,6 +134,51 @@ function Question(question, answers, correctAnswer) {
 }
 ```
 
+### Register
+
+- we will follow the same pattern defining a User and a Register object
+- The Register file :
+  ... will save the current user for us will validate it's email and display a successfull message if everything goes well else it will show an alert box
+
+```javascript
+function Register() {
+  this.user = null;
+}
+// code for validating
+Register.prototype.validateEmail = function(email) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return true;
+  else return false;
+};
+```
+
+- The User file :
+  ... we define a User and give access to his properties with getters and setters
+
+```javascript
+function User(firstname, lastname, email) {
+  this.firstname = firstname;
+  this.lastname = lastname;
+  this.email = email;
+}
+```
+
+## Adding more song and movies
+
+- if we wont to add more medias we simply have to add data in our audio.json and there you go
+
+```json
+"song": {
+    "newSong": {
+      "artist": "artisName",
+      "title": "title",
+      "duration": 0.28,
+      "isPlaying": false
+  }
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+Copyright [2020] [ALAMI IDRISSI TAHA / TSE]
+

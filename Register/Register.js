@@ -1,4 +1,4 @@
-/* Register class */
+/* Register Object */
 
 function Register() {
   this.user = null;

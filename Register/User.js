@@ -1,4 +1,4 @@
-/* User class */
+/* User Object */
 
 /*
 * User class wil contain
