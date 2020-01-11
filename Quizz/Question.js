@@ -1,11 +1,11 @@
 /* Question Class */
-/* 
-* this class Will contain
-* - a question
-* - a set of answers
-* - the correct answere
-* - the score for this questio
-*/
+/*
+ * this class Will contain
+ * - a question
+ * - a set of answers
+ * - the correct answere
+ * - the score for this questio
+ */
 function Question(question, answers, correctAnswer) {
   this.question = question;
   this.answers = answers;
@@ -38,7 +38,6 @@ Question.prototype.toHTML = function(
   callback,
   index
 ) {
-
   /* creating element */
   let h3 = document.createElement("h3");
   let nextQuestion = document.createElement("a");
@@ -46,7 +45,7 @@ Question.prototype.toHTML = function(
   let rank = document.createElement("label");
   let win = document.createElement("label");
   let loose = document.createElement("label");
-
+  let refresh = document.createElement("input");
   /* Setting details for element ( class for styling) (inner Html) */
   Question.setAttribute("class", "question");
   element.appendChild(Question);
@@ -59,6 +58,12 @@ Question.prototype.toHTML = function(
   h3.style.borderRadius = "5px";
   Question.appendChild(h3);
   h3.innerHTML = `${question.question}`;
+  refresh.setAttribute("type", "button");
+  refresh.setAttribute("value", "Reload Game");
+  refresh.addEventListener("click", e => {
+    document.location.reload();
+  });
+  refresh.setAttribute("class","reload");
   /* ---------------------------------------------------------------- */
 
   /* Creating dynamically the questions and answers */
@@ -69,7 +74,7 @@ Question.prototype.toHTML = function(
 
     label.innerHTML = `${question.getAnswers()[i]}`;
     label.appendChild(input);
-    label.setAttribute("class","answers")
+    label.setAttribute("class", "answers");
     input.setAttribute("type", "radio");
     input.setAttribute("name", "checked-only-once");
     div.setAttribute("class", "question-answer");
@@ -101,12 +106,14 @@ Question.prototype.toHTML = function(
     if (quizz.getScore() == quizz.getQuestions().length) {
       win.innerHTML = `You Win ! Score : ${quizz.getScore()}`;
       Question.appendChild(win);
+      Question.appendChild(refresh);
     } else if (
       quizz.getScore() != quizz.getQuestions().length &&
       index + 1 == quizz.getQuestions().length
     ) {
       loose.innerHTML = `Game Over ! Score : ${quizz.getScore()}`;
       Question.appendChild(loose);
+      Question.appendChild(refresh);
     } else
       callback.toHTML(
         section,

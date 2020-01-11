@@ -1,11 +1,11 @@
 /* This is our Playlist */
 
-/* 
-* it will contain
-* - A set of songs
-* - A set of movies
-* - the current playing index
-*/
+/*
+ * it will contain
+ * - A set of songs
+ * - A set of movies
+ * - the current playing index
+ */
 function Playlist() {
   this.songs = [];
   this.movies = [];
@@ -41,7 +41,7 @@ Playlist.prototype = {
     else if (media instanceof Movie)
       this.nowPlayingIndex = this.movies.findIndex(movie => movie === media);
   },
-  // return the current playing media 
+  // return the current playing media
   getCurrentPlaying: function(media) {
     if (media instanceof Song) return this.songs[this.nowPlayingIndex];
     else if (media instanceof Movie) return this.movies[this.nowPlayingIndex];
@@ -88,7 +88,7 @@ Playlist.prototype = {
     // creating the frame
     let ifrm = document.createElement("iframe");
 
-    // we create dynamically each song in the set 
+    // we create dynamically each song in the set
     this.songs.forEach(s => {
       let li = document.createElement("li");
       let a = document.createElement("a");
@@ -99,13 +99,16 @@ Playlist.prototype = {
       // then on click we prevent its default behaviour and for each other media we check if its playing then we stop it
       a.addEventListener("click", e => {
         e.preventDefault();
+        // we parse each movie to see if isPlaying is set to true  if so we stop it
         this.movies.forEach(m => {
           if (m.isPlaying == true) {
             this.getCurrentPlaying(m).stop();
             ifrm.parentNode.removeChild(ifrm);
           }
-          this.getCurrentPlaying(s).stop();
+          if (s.isPlaying == true) this.getCurrentPlaying(s).stop();
         });
+
+        // then we set the current playing to s
         this.setPlayingIndex(s);
 
         // handling the visual part of showing the PAUSE AND PLAY BUTTON
@@ -135,29 +138,54 @@ Playlist.prototype = {
     });
 
     nextButton.addEventListener("click", e => {
-      this.getCurrentPlaying(this.songs[0]).stop();
-      this.setPlayingIndex(this.next(this.getCurrentPlaying(this.songs[0])));
+      // we parse each song to see if isPlaying is set to true  if so we stop it
+      this.songs.forEach(s => {
+        if (s.isPlaying == true) {
+          this.getCurrentPlaying(s).stop();
+        }
+      });
+
+      // we parse each movie to see if isPlaying is set to true  if so we stop it
+      this.movies.forEach(m => {
+        if (m.isPlaying == true) {
+          this.getCurrentPlaying(m).stop();
+          ifrm.parentNode.removeChild(ifrm);
+        }
+      });
+      this.setPlayingIndex(
+        this.next(this.getCurrentPlaying(this.songs[this.nowPlayingIndex]))
+      );
       if (flag == false) {
-        this.play(this.getCurrentPlaying(this.songs[0]));
+        this.play(this.getCurrentPlaying(this.songs[this.nowPlayingIndex]));
         playButton.setAttribute("src", "./resources/img/pause.png");
         flag = true;
       } else {
-        this.stop(this.getCurrentPlaying(this.songs[0]));
+        this.stop(this.getCurrentPlaying(this.songs[this.nowPlayingIndex]));
         playButton.setAttribute("src", "./resources/img/play.png");
         flag = false;
       }
     });
     previousButton.addEventListener("click", e => {
-      if (this.getCurrentPlaying) this.getCurrentPlaying(this.songs[0]).stop();
+      this.songs.forEach(s => {
+        if (s.isPlaying == true) {
+          this.getCurrentPlaying(s).stop();
+        }
+      });
+      this.movies.forEach(m => {
+        if (m.isPlaying == true) {
+          this.getCurrentPlaying(m).stop();
+          ifrm.parentNode.removeChild(ifrm);
+        }
+      });
       this.setPlayingIndex(
-        this.previous(this.getCurrentPlaying(this.songs[0]))
+        this.previous(this.getCurrentPlaying(this.songs[this.nowPlayingIndex]))
       );
       if (flag == false) {
-        this.play(this.getCurrentPlaying(this.songs[0]));
+        this.play(this.getCurrentPlaying(this.songs[this.nowPlayingIndex]));
         playButton.setAttribute("src", "./resources/img/pause.png");
         flag = true;
       } else {
-        this.stop(this.getCurrentPlaying(this.songs[0]));
+        this.stop(this.getCurrentPlaying(this.songs[this.nowPlayingIndex]));
         playButton.setAttribute("src", "./resources/img/play.png");
         flag = false;
       }
@@ -177,7 +205,7 @@ Playlist.prototype = {
           if (s.isPlaying == true) {
             this.getCurrentPlaying(s).stop();
           }
-          this.getCurrentPlaying(m).stop();
+          if (m.isPlaying == true) this.getCurrentPlaying(m).stop();
         });
         this.setPlayingIndex(m);
         ifrm.setAttribute("src", `./resources/movies/${m.getTitle()}.mp4`);

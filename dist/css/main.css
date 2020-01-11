@@ -177,7 +177,7 @@ section {
   background: #2ecc71;
 }
 .container h3:hover {
-  transform: scale(1.8);
+  transform: scale(1.5);
 }
 #arrayOfSongs {
   display: flex;
@@ -204,7 +204,18 @@ section {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-
+.reload {
+  border: 0;
+  color: white;
+  background: transparent;
+  font-family: "Poppins", sans-serif;
+  filter: drop-shadow(5px 3px 5px yellow);
+  transition: ease 1.5s;
+  outline: none;
+}
+.reload:hover {
+  transform: rotate(360deg);
+}
 #playButton {
   cursor: pointer;
   transform: scale(1.2);
