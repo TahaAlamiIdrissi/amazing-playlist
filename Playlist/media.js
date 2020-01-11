@@ -1,4 +1,4 @@
-/* This is the Media Class */
+/* This is the Media Object */
 
 /* 
 * All the other classes will inherit from this class but without using the 

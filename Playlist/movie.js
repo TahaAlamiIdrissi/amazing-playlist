@@ -1,4 +1,4 @@
-/* Movie Class */
+/* Movie Object */
 
 /* 
 * Movie will have the same property as Media adding to that the year of apparition

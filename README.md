@@ -4,26 +4,16 @@ Amazing Playlist
 
 ## Description
 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+TRYING TO RECREATE THE SINGLE PAGE APPLICATION ARCHITECTURE USED FOR EXAMPLE IN (REACT JS)
+
 We will have like the title says an amazing playlist wich let us read some medias (Song and movies)
 Adding to that we will have a quizz so that the visitor can play and listen to his favourite track
 and for more advanced operation we could imagine that after the visitor register in our Website he could
 access some forbidden features
 
 ![alt text](./resources/img/playlist.PNG)
-
-```bash
-pip install foobar
-```
-
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 
 ## Features
 
@@ -52,7 +42,8 @@ Movie.prototype = Object.create(Media.prototype);
 Movie.prototype.constructor = Movie;
 ```
 
-and then for movie we defined its own methods using 
+and then for movie we defined its own methods using
+
 ```javascript
 Movie.prototype.methodName = function() {
   //code goes here
@@ -61,6 +52,48 @@ Movie.prototype.methodName = function() {
 
 so if we call methodName and we did not define it on the Movie prototype , we will automatically search for it on the Media prototype
 that's the idea of the project same thing goes for Song , Quizz , Register ..
+
+## Details
+
+### PLAYLIST
+
+- the Movie file :
+  ... this File is where the movie object is defined we can in this file get acces to the movie object property and change them
+  ```javascript
+  function Movie(year, title, duration, isPlaying) {
+    this.year = year;
+    // Calling the Constructor of Media
+    Media.call(this, title, duration, isPlaying);
+  }
+  ```
+- The Song file :
+  ... same as Movie we can have access to song property and methods to work with them
+  ```javascript
+  function Song(artist, title, duration, isPlaying) {
+    this.artist = artist;
+    this.audio = new Audio();
+    Media.call(this, title, duration, isPlaying);
+  }
+  ```
+- The Playlist file :
+  ... This file will handle our playlist that means it's the place where we define our set of songs and movies and we work with them
+
+```javascript
+function Playlist() {
+  this.songs = [];
+  this.movies = [];
+  this.nowPlayingIndex = 0;
+}
+```
+
+... in here we did try to follow the pattern used in react js framework wich is rendering Html pages (SINGLE PAGE)
+.. and it's visible in the
+
+```javascript
+ renderInElement: function() { // CODE }
+```
+
+### QUIZZ
 
 
 ## License

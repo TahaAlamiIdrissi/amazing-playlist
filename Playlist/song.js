@@ -1,4 +1,4 @@
-/* Song class */
+/* Song object */
 
 /* 
 * this class will have the same property of media's adding to that the artist
