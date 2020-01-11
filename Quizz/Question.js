@@ -1,4 +1,4 @@
-/* Question Class */
+/* Question Object */
 /*
  * this class Will contain
  * - a question

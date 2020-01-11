@@ -21,7 +21,7 @@ The most important difference between class- and prototype-based inheritance is 
 
 in our project we used prototype-base inheritance so we could master to basics and that will allow us to easly get the class-based inheritance
 
-We defined the folliwing objects for the Playlist
+We defined the following objects for the Playlist
 
 - Media
 - Song
@@ -95,6 +95,44 @@ function Playlist() {
 
 ### QUIZZ
 
+- the Quizz file :
+  ... this file will contain the set of questions and answers and the total score and will give access to all this element plus
+  ... hiw will create a quizz calling a toHTML method defined in Question file
+
+```javascript
+function Quizz(totalScore) {
+  this.questions = [];
+  this.answer = "";
+  this.totalScore = totalScore;
+}
+```
+
+- Calling the toHTML func
+
+```javascript
+Quizz.prototype.renderInHTML = function(quizz) {
+  let index = quizz.getIndex(question);
+  question2.toHTML(
+    section,
+    quizz.getQuestions()[index],
+    quizz,
+    question,
+    index
+  );
+};
+```
+
+- The Question file :
+  ... in this file we will give birth to a Question .. and render it with the to HTML func (REACT style)
+
+```javascript
+function Question(question, answers, correctAnswer) {
+  this.question = question;
+  this.answers = answers;
+  this.correctAnswer = correctAnswer;
+  this.score = 0;
+}
+```
 
 ## License
 

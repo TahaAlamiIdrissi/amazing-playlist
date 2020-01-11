@@ -1,4 +1,4 @@
-/* Quizz Class */
+/* Quizz Object */
 
 /* 
 * this class will contain
