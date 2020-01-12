@@ -12,6 +12,7 @@
     <title>Testing OOP</title>
   </head>
   <body>
+    <!-- Creating our simple  navbar -->
     <div class="container">
       <nav>
         <img src="./resources/img/logo.png" height="70" width="75" alt="logo" />
@@ -22,31 +23,28 @@
         </ul>
       </nav>
 
+      <!-- Creating sections -->
+
+      <!-- The playlist section -->
       <section id="playlist">
         <div class="card">
           <h3>What a Playlist ..</h3>
           <ul id="arrayOfSongs"></ul>
           <div class="controllers">
-            <img
-              src="./resources/img/previous.png"
-              id="previousButton"
-              alt="prev"
-            />
+            <img src="./resources/img/previous.png" id="previousButton" alt="prev"/>
             <img src="./resources/img/play.png" id="playButton" alt="play" />
             <img src="./resources/img/next.png" id="nextButton" alt="next" />
           </div>
         </div>
       </section>
+      <!-- The Quizz Section -->
       <section id="quizz"></section>
+
+      <!-- Registering section -->
       <section id="register">
         <form class="box" name="registration">
           <h3>Register</h3>
-          <input
-            type="text"
-            name="firstname"
-            placeholder="firstname"
-            id="fid"
-          />
+          <input type="text" name="firstname" placeholder="firstname" id="fid" />
           <input type="text" name="lastname" placeholder="lastname" id="lid" />
           <input type="text" name="email" placeholder="email" id="eid" />
           <input type="submit" name="submit" value="Register" />

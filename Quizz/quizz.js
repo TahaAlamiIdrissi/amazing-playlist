@@ -59,8 +59,8 @@ let question3 = new Question(
 );
 let question2 = new Question(
   "Who made tom and jerry Soundtrack  ?",
-  ["Václav Lídl", "Donald Trump", "Laclau Charlotte"],
-  "Laclau Charlotte"
+  ["Václav Lídl", "Donald Trump", "Ter Stegen"],
+  "Václav Lídl"
 );
 
 quizz.add(question);

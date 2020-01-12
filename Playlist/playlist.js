@@ -81,7 +81,6 @@ Playlist.prototype = {
       return this.movies[this.nowPlayingIndex];
     }
   },
-
   renderInElement: function() {
     // this flag will let us handle the visual part for showing the PAUSE and PLAY BUTTONS
     let flag = false;
@@ -99,13 +98,19 @@ Playlist.prototype = {
       // then on click we prevent its default behaviour and for each other media we check if its playing then we stop it
       a.addEventListener("click", e => {
         e.preventDefault();
-        // we parse each movie to see if isPlaying is set to true  if so we stop it
+        // we parse each movie and each song to see if isPlaying is set to true  if so we stop it
         this.movies.forEach(m => {
           if (m.isPlaying == true) {
             this.getCurrentPlaying(m).stop();
-            ifrm.parentNode.removeChild(ifrm);
+            // remove the fram tag
+            if (ifrm) ifrm.parentNode.removeChild(ifrm);
           }
           if (s.isPlaying == true) this.getCurrentPlaying(s).stop();
+        });
+        this.songs.forEach(e => {
+          if (e.isPlaying == true) {
+            this.getCurrentPlaying(s).stop();
+          }
         });
 
         // then we set the current playing to s
@@ -126,6 +131,20 @@ Playlist.prototype = {
     });
 
     playButton.addEventListener("click", e => {
+      // we parse each movie and each song to see if isPlaying is set to true  if so we stop it
+      this.songs.forEach(s => {
+        if (s.isPlaying == true) {
+          this.getCurrentPlaying(s).stop();
+        }
+      });
+      this.movies.forEach(m => {
+        if (m.isPlaying == true) {
+          this.getCurrentPlaying(m).stop();
+          if (ifrm) ifrm.parentNode.removeChild(ifrm);
+        }
+      });
+
+      // we always start the play from the begining of the list
       if (flag == false) {
         this.play(this.songs[0]);
         playButton.setAttribute("src", "./resources/img/pause.png");
@@ -144,12 +163,13 @@ Playlist.prototype = {
           this.getCurrentPlaying(s).stop();
         }
       });
+      console.log(this.nowPlayingIndex);
 
       // we parse each movie to see if isPlaying is set to true  if so we stop it
       this.movies.forEach(m => {
         if (m.isPlaying == true) {
           this.getCurrentPlaying(m).stop();
-          ifrm.parentNode.removeChild(ifrm);
+          if (ifrm) ifrm.parentNode.removeChild(ifrm);
         }
       });
       this.setPlayingIndex(
@@ -165,7 +185,9 @@ Playlist.prototype = {
         flag = false;
       }
     });
+
     previousButton.addEventListener("click", e => {
+      // we parse each movie and each song to see if isPlaying is set to true  if so we stop it
       this.songs.forEach(s => {
         if (s.isPlaying == true) {
           this.getCurrentPlaying(s).stop();
@@ -174,7 +196,7 @@ Playlist.prototype = {
       this.movies.forEach(m => {
         if (m.isPlaying == true) {
           this.getCurrentPlaying(m).stop();
-          ifrm.parentNode.removeChild(ifrm);
+          if (ifrm) ifrm.parentNode.removeChild(ifrm);
         }
       });
       this.setPlayingIndex(
@@ -220,7 +242,7 @@ Playlist.prototype = {
           flag = true;
         } else {
           this.stop(m);
-          ifrm.parentNode.removeChild(ifrm);
+          if (ifrm) ifrm.parentNode.removeChild(ifrm);
           playButton.setAttribute("src", "./resources/img/play.png");
           flag = false;
         }
