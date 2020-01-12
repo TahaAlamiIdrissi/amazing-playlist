@@ -217,7 +217,7 @@ Playlist.prototype = {
     this.movies.forEach(m => {
       let li = document.createElement("li");
       let a = document.createElement("a");
-
+      li.setAttribute("class","film");
       arrayOfSongsTag.appendChild(li);
       li.appendChild(a);
       a.innerHTML = `${m.getTitle()}-${m.getYear()} --- ${m.getDuration()}`;

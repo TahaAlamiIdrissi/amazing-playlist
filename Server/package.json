@@ -1,0 +1,31 @@
+{
+  "name": "express-backend",
+  "version": "1.0.0",
+  "description": "backend for a work",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/TahaAlamiIdrissi/express-backend.git"
+  },
+  "author": "ALAMI IDRISSI Taha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/TahaAlamiIdrissi/express-backend/issues"
+  },
+  "homepage": "https://gitlab.com/TahaAlamiIdrissi/express-backend#readme",
+  "dependencies": {
+    "@hapi/joi": "^15.1.1",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

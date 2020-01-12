@@ -1,0 +1,3 @@
+./ The Server Folder is just a (How the server side could be done) 
+./ The readme file should be opened in dillinger.io or other software 
+./ link to the github repo : https://github.com/TahaAlamiIdrissi/amazing-playlist

@@ -50,7 +50,7 @@ let quizz = new Quizz(0);
 let question = new Question(
   "How Many Songs Are in the Playlist ?",
   ["3", "5", "1K"],
-  "3"
+  "5"
 );
 let question3 = new Question(
   "Who made dickinson music  ?",

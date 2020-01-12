@@ -13,9 +13,21 @@
       "isPlaying": false
     },
     "songThree": {
-      "artist": "avril-lavigne",
+      "artist": "Avril lavigne",
       "title": "close",
       "duration": 0.58,
+      "isPlaying": false
+    },
+    "songFour": {
+      "artist": "Remy Zero",
+      "title": "saveme",
+      "duration": 0.50,
+      "isPlaying": false
+    },
+    "songFive": {
+      "artist": "Mark Snow",
+      "title": "xfiles",
+      "duration": 0.43,
       "isPlaying": false
     }
   },

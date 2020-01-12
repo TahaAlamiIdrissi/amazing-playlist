@@ -175,6 +175,13 @@ function User(firstname, lastname, email) {
       "isPlaying": false
   }
 ```
+## Server Folder
+
+- The server represent the back end part when registering and login to website
+- This is just an example of how we could make the server working with node js (using express)
+- there's no connection between the client and server side 
+
+
 
 ## License
 

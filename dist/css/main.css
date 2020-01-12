@@ -198,7 +198,9 @@ section {
 #arrayOfSongs li:hover {
   transform: translateX(10px);
 }
-
+.film {
+  box-shadow: 5px 3px 5px rgb(206, 147, 12);
+}
 #arrayOfSongs a {
   color: white;
   text-decoration: none;
